@@ -1,1 +1,9 @@
-<p>login works!</p>
+<div class="login-container">
+  <h2>WELCOME AGAIN!</h2>
+  <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+    <input type="email" formControlName="email" placeholder="Email">
+    <input type="password" formControlName="password" placeholder="Password">
+    <button type="submit">LOG IN</button>
+  </form>
+  <a routerLink="/forgot-password">Forgot password?</a>
+</div>
