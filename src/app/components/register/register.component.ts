@@ -1,10 +1,10 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
-import {NgClass, NgIf, NgFor} from '@angular/common';
+import {NgIf, NgFor, KeyValuePipe } from '@angular/common';
 import {UserRegistrationRequest} from '../../dtos/user-registration-request';
 import {UsersService} from '../../servicios/users.service';
 import {ErrorResponse} from '../../dtos/error-response';
-import {Router, RouterOutlet} from '@angular/router';
+import {Router} from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { AsyncValidatorFn, AbstractControl, ValidationErrors } from '@angular/forms';
 import { map, debounceTime, switchMap, catchError, of } from 'rxjs';
@@ -12,7 +12,7 @@ import { map, debounceTime, switchMap, catchError, of } from 'rxjs';
 @Component({
   selector: 'app-register',
   standalone: true,
-  imports: [ReactiveFormsModule, NgIf, NgClass, NgFor],
+  imports: [ReactiveFormsModule, NgIf, NgFor, KeyValuePipe ],
   templateUrl: './register.component.html',
   styleUrls: ['./register.component.css']
 })
