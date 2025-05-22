@@ -1,3 +1,14 @@
-.error{
+input {
+  display: block;
+  margin-bottom: 10px;
+  padding: 5px;
+  width: 300px;
+}
+
+.error {
   color: red;
+  font-size: 0.9rem;
+}
+.input-error {
+  border: 1px solid red;
 }
