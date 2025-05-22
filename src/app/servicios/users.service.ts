@@ -14,4 +14,7 @@ export class UsersService {
   public registrar(user: UserRegistrationRequest): Observable<UserResponse> {
     return this.http.post<UserResponse>(`${this.url}`, user);
   }
+  public emailExiste(email: string): Observable<boolean> {
+    return this.http.get<boolean>(`${this.url}/validate-email?email=${email}`);
+  }
 }

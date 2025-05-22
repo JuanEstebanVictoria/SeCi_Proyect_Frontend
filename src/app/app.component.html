@@ -1,10 +1,7 @@
-<header>
-  <p>Página inicial de {{ title }}</p>
-  <ul>
-    <li><a routerLink="">Start</a></li>
-    <li><a routerLink="/login">Login</a></li>
-    <li><a routerLink="/register">Register</a></li>
-  </ul>
-</header>
-<router-outlet />
-<footer>{{footer}}</footer>
+<app-header></app-header>
+
+<main class="container my-4">
+  <router-outlet></router-outlet>
+</main>
+
+<app-footer></app-footer>
