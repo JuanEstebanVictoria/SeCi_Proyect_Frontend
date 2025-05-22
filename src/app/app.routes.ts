@@ -34,7 +34,7 @@ export const routes: Routes = [
   { path: 'settings', component: ProfileSettingsComponent, canActivate: [authGuard] },
 
   // Redirección de sesión activa
-  { path: 'inicio', component: HomeComponent },
+  { path: 'home', component: HomeComponent },
 
   // Roles protegidos
   { path: 'home-user', component: HomeUserComponent, canActivate: [rolesGuard], data: { expectedRoles: ['USER'] } },
