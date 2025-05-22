@@ -17,19 +17,16 @@
   <h1>WELCOME TO SECI!</h1>
 
   <div class="button-group">
-    <button class="action-button">
-      LOG IN
-      <i class="fas fa-arrow-right"></i>
+    <button class="action-button" (click)="goToLogin()">
+      LOG IN <i class="fas fa-arrow-right"></i>
     </button>
 
-    <button class="action-button">
-      REGISTER
-      <i class="fas fa-user-plus"></i>
+    <button class="action-button" (click)="goToRegister()">
+      REGISTER <i class="fas fa-user-plus"></i>
     </button>
 
-    <button class="action-button admin-button">
-      ADMINISTRATOR
-      <i class="fas fa-shield-alt"></i>
+    <button class="action-button admin-button" (click)="goToAdmin()">
+      ADMINISTRATOR <i class="fas fa-shield-alt"></i>
     </button>
   </div>
 </div>
