@@ -1,1 +1,126 @@
-<p>home-admin works!</p>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Dashboard</title>
+  <link rel="stylesheet" href="home-admin.component.css">
+</head>
+<body>
+<div class="admin-container">
+  <!-- Barra de navegación -->
+  <div class="admin-nav">
+    <div class="admin-nav-icons">
+      <div class="admin-nav-icon" onclick="window.history.back()">←</div>
+      <div class="admin-nav-icon" onclick="window.location.href='index.html'">⌂</div>
+    </div>
+  </div>
+
+  <!-- Encabezado -->
+  <div class="admin-header">
+    <h1>ADMINISTRATOR DASHBOARD</h1>
+  </div>
+
+  <!-- Sección principal -->
+  <div class="admin-content">
+    <!-- Lista de reportes -->
+    <div class="reports-section">
+      <div class="section-header">
+        <h2>REPORTS</h2>
+        <button class="section-btn users-btn">USERS</button>
+      </div>
+
+      <div class="reports-table">
+        <div class="table-header">
+          <div class="header-cell">TITLE</div>
+          <div class="header-cell">CATEGORY</div>
+          <div class="header-cell">DESCRIPTION</div>
+          <div class="header-cell">STATUS</div>
+          <div class="header-cell">IMPORTANT</div>
+        </div>
+
+        <div class="table-body">
+          <!-- Fila 1 -->
+          <div class="table-row" data-id="1">
+            <div class="table-cell">Security Breach</div>
+            <div class="table-cell">Security</div>
+            <div class="table-cell">Unauthorized access detected</div>
+            <div class="table-cell">
+              <select class="status-select" onchange="updateStatus(this, 1)">
+                <option value="pending">Pending</option>
+                <option value="in-review" selected>In Review</option>
+                <option value="completed">Completed</option>
+              </select>
+            </div>
+            <div class="table-cell">
+              <input type="checkbox" class="important-check" id="important-1">
+              <label for="important-1"></label>
+            </div>
+          </div>
+
+          <!-- Fila 2 -->
+          <div class="table-row" data-id="2">
+            <div class="table-cell">Spam Accounts</div>
+            <div class="table-cell">Users</div>
+            <div class="table-cell">Multiple fake accounts detected</div>
+            <div class="table-cell">
+              <select class="status-select" onchange="updateStatus(this, 2)">
+                <option value="pending" selected>Pending</option>
+                <option value="in-review">In Review</option>
+                <option value="completed">Completed</option>
+              </select>
+            </div>
+            <div class="table-cell">
+              <input type="checkbox" class="important-check" id="important-2" checked>
+              <label for="important-2"></label>
+            </div>
+          </div>
+
+          <!-- Filas vacías 3-6 -->
+          <div class="table-row empty-row">
+            <div class="table-cell">3.</div>
+            <div class="table-cell"></div>
+            <div class="table-cell"></div>
+            <div class="table-cell"></div>
+            <div class="table-cell"></div>
+          </div>
+          <div class="table-row empty-row">
+            <div class="table-cell">4.</div>
+            <div class="table-cell"></div>
+            <div class="table-cell"></div>
+            <div class="table-cell"></div>
+            <div class="table-cell"></div>
+          </div>
+          <div class="table-row empty-row">
+            <div class="table-cell">5.</div>
+            <div class="table-cell"></div>
+            <div class="table-cell"></div>
+            <div class="table-cell"></div>
+            <div class="table-cell"></div>
+          </div>
+          <div class="table-row empty-row">
+            <div class="table-cell">6.</div>
+            <div class="table-cell"></div>
+            <div class="table-cell"></div>
+            <div class="table-cell"></div>
+            <div class="table-cell"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Acciones administrativas -->
+    <div class="admin-actions">
+      <button class="action-btn decline-btn">DECLINE</button>
+      <div class="action-buttons">
+        <button class="action-btn verify-btn">MARK AS VERIFIED</button>
+        <button class="action-btn delete-btn">DELETE REPORT</button>
+        <button class="action-btn create-btn">CREATE CATEGORY</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="js/admin.js"></script>
+</body>
+</html>

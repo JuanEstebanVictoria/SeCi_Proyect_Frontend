@@ -1,1 +1,79 @@
-<p>profile-settings works!</p>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Settings</title>
+  <link rel="stylesheet" href="profile-settings.component.css">
+</head>
+<body>
+<div class="container">
+  <!-- Barra de navegación -->
+  <div class="nav-bar">
+    <div class="nav-icons">
+      <div class="nav-icon" onclick="window.history.back()">←</div>
+      <div class="nav-icon" onclick="window.location.href='index.html'">⌂</div>
+    </div>
+  </div>
+
+  <!-- Encabezado -->
+  <div class="header">
+    <h1>SETTINGS</h1>
+  </div>
+
+  <!-- Formulario -->
+  <form class="settings-form">
+    <div class="form-row">
+      <label for="fullname">Full name</label>
+      <input type="text" id="fullname" class="text-field" placeholder="Enter your full name">
+    </div>
+
+    <div class="form-row">
+      <label for="phone">Phone number</label>
+      <input type="tel" id="phone" class="text-field" placeholder="Enter your phone number">
+    </div>
+
+    <div class="form-row">
+      <label for="address">Address</label>
+      <input type="text" id="address" class="text-field" placeholder="Enter your address">
+    </div>
+
+    <div class="form-row">
+      <label>Select your new location</label>
+      <button type="button" class="map-btn" onclick="openMap()">OPEN MAP</button>
+    </div>
+
+    <div class="action-buttons">
+      <button type="button" class="save-btn" onclick="saveChanges()">SAVE CHANGES</button>
+      <button type="button" class="delete-btn" onclick="deleteAccount()">DELETE ACCOUNT</button>
+    </div>
+  </form>
+</div>
+
+<script>
+  function openMap() {
+    alert("Map functionality would open here");
+  }
+
+  function saveChanges() {
+    const fullName = document.getElementById('fullname').value;
+    const phone = document.getElementById('phone').value;
+    const address = document.getElementById('address').value;
+
+    if (!fullName || !phone || !address) {
+      alert("Please fill in all fields");
+      return;
+    }
+
+    alert("Changes saved successfully!");
+  }
+
+  function deleteAccount() {
+    if (confirm("Are you sure you want to delete your account? This action cannot be undone.")) {
+      alert("Account deleted successfully");
+      window.location.href = "index.html";
+    }
+  }
+</script>
+</body>
+</html>

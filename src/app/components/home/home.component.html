@@ -1,12 +1,37 @@
-<div class="home-container">
-  <div class="text-content">
-    <h1>WELCOME TO SECI!</h1>
-    <a routerLink="/login"><button class="btn-gradient">LOG IN</button></a>
-    <a routerLink="/register"><button class="btn-gradient">REGISTER</button></a>
-    <button class="btn-gradient">ADMINISTRATOR</button>
-    <p class="subtitle">STAY AWARE IN REAL TIME</p>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SEC - Security System</title>
+  <link rel="stylesheet" href="home.component.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+<div class="container">
+  <div class="header">
+    <div class="logo">SECI</div>
+    <div class="slogan">STAY AWARE IN REAL TIME</div>
   </div>
-  <div class="image-content">
-    <img src="assets/seci-logo.png" alt="SECI Logo" />
+
+  <h1>WELCOME TO SECI!</h1>
+
+  <div class="button-group">
+    <button class="action-button">
+      LOG IN
+      <i class="fas fa-arrow-right"></i>
+    </button>
+
+    <button class="action-button">
+      REGISTER
+      <i class="fas fa-user-plus"></i>
+    </button>
+
+    <button class="action-button admin-button">
+      ADMINISTRATOR
+      <i class="fas fa-shield-alt"></i>
+    </button>
   </div>
 </div>
+</body>
+</html>

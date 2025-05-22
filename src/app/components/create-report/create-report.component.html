@@ -1,1 +1,118 @@
-<p>create-report works!</p>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Crear Reporte</title>
+  <link rel="stylesheet" href="create-report.component.css">
+</head>
+<body>
+<div class="container">
+  <!-- Barra de navegación -->
+  <div class="nav-bar">
+    <div class="nav-icons">
+      <div class="nav-icon" onclick="window.history.back()">←</div>
+      <div class="nav-icon" onclick="window.location.href='index.html'">⌂</div>
+    </div>
+  </div>
+
+  <!-- Encabezado -->
+  <div class="header">
+    <h1>CREATE REPORT</h1>
+  </div>
+
+  <!-- Formulario -->
+  <div class="form-container">
+    <form id="reportForm">
+      <div class="form-group">
+        <label for="title">Title</label>
+        <input type="text" id="title" class="text-field" placeholder="Enter report title">
+      </div>
+
+      <div class="form-group">
+        <label for="category">Category</label>
+        <select id="category" class="list-field">
+          <option value="">Select a category</option>
+          <option value="sales">Sales</option>
+          <option value="marketing">Marketing</option>
+          <option value="operations">Operations</option>
+          <option value="hr">Human Resources</option>
+          <option value="it">IT</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label for="description">Description</label>
+        <textarea id="description" class="text-field" rows="4" placeholder="Enter report description"></textarea>
+      </div>
+
+      <div class="form-group">
+        <label>Upload images</label>
+        <div class="upload-area" id="uploadArea">
+          <span>Click to upload or drag and drop</span>
+          <input type="file" id="fileInput" multiple accept="image/*" style="display: none;">
+        </div>
+        <div id="previewContainer" class="preview-container"></div>
+      </div>
+
+      <button type="submit" class="publish-button">PUBLISH</button>
+    </form>
+  </div>
+</div>
+
+<script>
+  // Manejar la subida de imágenes
+  const uploadArea = document.getElementById('uploadArea');
+  const fileInput = document.getElementById('fileInput');
+  const previewContainer = document.getElementById('previewContainer');
+
+  uploadArea.addEventListener('click', () => fileInput.click());
+
+  uploadArea.addEventListener('dragover', (e) => {
+    e.preventDefault();
+    uploadArea.classList.add('dragover');
+  });
+
+  uploadArea.addEventListener('dragleave', () => {
+    uploadArea.classList.remove('dragover');
+  });
+
+  uploadArea.addEventListener('drop', (e) => {
+    e.preventDefault();
+    uploadArea.classList.remove('dragover');
+    fileInput.files = e.dataTransfer.files;
+    handleFiles(e.dataTransfer.files);
+  });
+
+  fileInput.addEventListener('change', () => {
+    handleFiles(fileInput.files);
+  });
+
+  function handleFiles(files) {
+    previewContainer.innerHTML = '';
+    Array.from(files).forEach(file => {
+      if (file.type.startsWith('image/')) {
+        const reader = new FileReader();
+        reader.onload = (e) => {
+          const preview = document.createElement('div');
+          preview.className = 'image-preview';
+          preview.innerHTML = `
+                            <img src="${e.target.result}" alt="${file.name}">
+                            <span>${file.name}</span>
+                        `;
+          previewContainer.appendChild(preview);
+        };
+        reader.readAsDataURL(file);
+      }
+    });
+  }
+
+  // Manejar el envío del formulario
+  document.getElementById('reportForm').addEventListener('submit', (e) => {
+    e.preventDefault();
+    alert('Report published successfully!');
+    // Aquí iría el código para enviar el formulario
+  });
+</script>
+</body>
+</html>
