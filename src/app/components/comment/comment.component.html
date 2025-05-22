@@ -1,1 +1,96 @@
-<p>comment works!</p>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Comentarios</title>
+  <link rel="stylesheet" href="comment.component.css">
+</head>
+<body>
+<div class="comments-container">
+  <!-- Barra de navegación -->
+  <div class="nav-bar">
+    <div class="nav-icons">
+      <div class="nav-icon" onclick="window.history.back()">←</div>
+      <div class="nav-icon" onclick="window.location.href='index.html'">⌂</div>
+    </div>
+  </div>
+
+  <!-- Encabezado -->
+  <div class="header">
+    <h1>COMMENTS</h1>
+  </div>
+
+  <!-- Lista de comentarios -->
+  <div class="comments-list">
+    <div class="comment">
+      <p>I saw it</p>
+      <div class="comment-actions">
+        <span class="comment-time">Hoy 10:30 AM</span>
+      </div>
+    </div>
+
+    <div class="comment">
+      <p>There were lots of dead people</p>
+      <div class="comment-actions">
+        <span class="comment-time">Ayer 4:45 PM</span>
+      </div>
+    </div>
+
+    <div class="comment">
+      <p>My father saw it</p>
+      <div class="comment-actions">
+        <span class="comment-time">Ayer 11:20 AM</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Acciones -->
+  <div class="comment-actions-bar">
+    <button class="add-comment-btn">ADD COMMENTS</button>
+    <button class="delete-comment-btn">DELETE COMMENT</button>
+  </div>
+
+  <!-- Formulario para nuevo comentario (oculto inicialmente) -->
+  <div class="new-comment-form" id="commentForm" style="display: none;">
+    <textarea placeholder="Escribe tu comentario..."></textarea>
+    <div class="form-actions">
+      <button class="cancel-btn">Cancelar</button>
+      <button class="submit-btn">Publicar</button>
+    </div>
+  </div>
+</div>
+
+<script>
+  // Mostrar/ocultar formulario de comentario
+  document.querySelector('.add-comment-btn').addEventListener('click', function() {
+    document.getElementById('commentForm').style.display = 'block';
+  });
+
+  document.querySelector('.cancel-btn').addEventListener('click', function() {
+    document.getElementById('commentForm').style.display = 'none';
+  });
+
+  // Manejar eliminación de comentarios
+  document.querySelector('.delete-comment-btn').addEventListener('click', function() {
+    if (confirm('¿Estás seguro de que quieres eliminar este comentario?')) {
+      // Aquí iría la lógica para eliminar el comentario seleccionado
+      alert('Comentario eliminado');
+    }
+  });
+
+  // Manejar envío de nuevo comentario
+  document.querySelector('.submit-btn').addEventListener('click', function() {
+    const commentText = document.querySelector('.new-comment-form textarea').value;
+    if (commentText.trim() !== '') {
+      // Aquí iría la lógica para agregar el comentario
+      alert('Comentario agregado: ' + commentText);
+      document.getElementById('commentForm').style.display = 'none';
+      document.querySelector('.new-comment-form textarea').value = '';
+    } else {
+      alert('Por favor escribe un comentario');
+    }
+  });
+</script>
+</body>
+</html>

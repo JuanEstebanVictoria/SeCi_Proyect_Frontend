@@ -1,1 +1,109 @@
-<p>main-dashboard works!</p>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard mainDashboard</title>
+  <link rel="stylesheet" href="main-dashboard.component.css">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+</head>
+<body>
+<div class="container">
+  <!-- Barra de navegación -->
+  <div class="nav-bar">
+    <div class="nav-icons">
+      <div class="nav-icon" onclick="window.history.back()">←</div>
+      <div class="nav-icon" onclick="window.location.href='index.html'">⌂</div>
+    </div>
+  </div>
+
+  <!-- Encabezado -->
+  <div class="header">
+    <h1>MAIN DASHBOARD</h1>
+    <h2>Armenia Quindio</h2>
+    <p>Capital del Eje Cafetero</p>
+  </div>
+
+  <!-- Reportes -->
+  <div class="reports-section">
+    <h2>REPORTES RECIENTES</h2>
+    <div class="reports-grid">
+      <div class="report-card">
+        <h3>Turismo 2023</h3>
+        <p class="report-date">Actualizado: 15/04/2023</p>
+        <button class="show-details">Ver Detalles</button>
+      </div>
+      <div class="report-card">
+        <h3>Producción de Café</h3>
+        <p class="report-date">Actualizado: 10/04/2023</p>
+        <button class="show-details">Ver Detalles</button>
+      </div>
+      <div class="report-card">
+        <h3>Eventos Culturales</h3>
+        <p class="report-date">Actualizado: 05/04/2023</p>
+        <button class="show-details">Ver Detalles</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Mapa interactivo -->
+  <div class="map-section">
+    <h2>MAPA DE ARMENIA</h2>
+    <div id="map"></div>
+  </div>
+</div>
+
+<script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+<script>
+  // Mapa de Armenia, Quindío
+  const map = L.map('map').setView([4.5339, -75.6811], 14);
+
+  // Capa del mapa
+  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+  }).addTo(map);
+
+  // Marcadores principales
+  const lugares = [
+    {
+      nombre: "Plaza de Bolívar",
+      coordenadas: [4.5370, -75.6755],
+      descripcion: "Corazón de la ciudad"
+    },
+    {
+      nombre: "Museo del Oro Quimbaya",
+      coordenadas: [4.5388, -75.6688],
+      descripcion: "Cultura precolombina"
+    },
+    {
+      nombre: "Parque de la Vida",
+      coordenadas: [4.5614, -75.6556],
+      descripcion: "Área recreativa"
+    },
+    {
+      nombre: "Centro Comercial Portal del Quindío",
+      coordenadas: [4.5250, -75.6408],
+      descripcion: "Principal centro comercial"
+    }
+  ];
+
+  // Añadir marcadores
+  lugares.forEach(lugar => {
+    L.marker(lugar.coordenadas)
+      .addTo(map)
+      .bindPopup(`<b>${lugar.nombre}</b><br>${lugar.descripcion}`);
+  });
+
+  // Círculo de área central
+  L.circle([4.5339, -75.6811], {
+    color: '#2ecc71',
+    fillColor: '#27ae60',
+    fillOpacity: 0.2,
+    radius: 1000
+  }).addTo(map).bindPopup("Centro de Armenia");
+
+  // Control de escala
+  L.control.scale().addTo(map);
+</script>
+</body>
+</html>

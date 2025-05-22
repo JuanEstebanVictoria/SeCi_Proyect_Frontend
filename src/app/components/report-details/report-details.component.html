@@ -1,1 +1,86 @@
-<p>report-details works!</p>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Report Details</title>
+  <link rel="stylesheet" href="report-details.component.css">
+</head>
+<body>
+<div class="dashboard-container">
+  <!-- Barra superior -->
+  <div class="top-bar">
+    <div class="nav-icons">
+      <div class="nav-icon" onclick="window.history.back()">←</div>
+      <div class="nav-icon" onclick="window.location.href='index.html'">⌂</div>
+    </div>
+    <div class="search-box">
+      <input type="text" placeholder="Find report" class="search-field">
+    </div>
+  </div>
+
+  <!-- Contenido principal -->
+  <div class="main-content">
+    <div class="header-section">
+      <h1>REPORT DETAILS</h1>
+      <div class="report-count">5</div>
+    </div>
+
+    <!-- Tabla de reportes -->
+    <div class="reports-table">
+      <div class="table-header">
+        <div class="header-cell">TITLE</div>
+        <div class="header-cell">CATEGORY</div>
+        <div class="header-cell">DESCRIPTION</div>
+        <div class="header-cell">STATUS</div>
+        <div class="header-cell">IMPORTANT</div>
+      </div>
+
+      <!-- Filas de reportes -->
+      <div class="table-row">
+        <div class="table-cell">1. Quarterly Sales</div>
+        <div class="table-cell">Sales</div>
+        <div class="table-cell">Q1 2023 performance analysis</div>
+        <div class="table-cell"><span class="status-badge completed">Completed</span></div>
+        <div class="table-cell"></div>
+      </div>
+
+      <div class="table-row">
+        <div class="table-cell">2. Marketing Campaign</div>
+        <div class="table-cell">Marketing</div>
+        <div class="table-cell">Spring promotion results</div>
+        <div class="table-cell"><span class="status-badge in-progress">In Progress</span></div>
+        <div class="table-cell"></div>
+      </div>
+
+      <div class="table-row">
+        <div class="table-cell">3. User Analytics</div>
+        <div class="table-cell">IT</div>
+        <div class="table-cell">Monthly user behavior</div>
+        <div class="table-cell"><span class="status-badge pending">Pending</span></div>
+        <div class="table-cell"></div>
+      </div>
+
+      <div class="table-row">
+        <div class="table-cell">4. Inventory Report</div>
+        <div class="table-cell">Operations</div>
+        <div class="table-cell">Current stock levels</div>
+        <div class="table-cell"><span class="status-badge completed">Completed</span></div>
+        <div class="table-cell"></div>
+      </div>
+
+      <div class="table-row">
+        <div class="table-cell">5. HR Update</div>
+        <div class="table-cell">HR</div>
+        <div class="table-cell">Employee satisfaction survey</div>
+        <div class="table-cell"><span class="status-badge in-progress">In Progress</span></div>
+        <div class="table-cell"></div>
+      </div>
+    </div>
+
+    <!-- Botón de ver comentarios -->
+    <button class="action-btn">SEE COMMENTS</button>
+  </div>
+</div>
+</body>
+</html>
