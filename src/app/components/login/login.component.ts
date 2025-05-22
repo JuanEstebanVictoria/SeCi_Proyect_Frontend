@@ -14,7 +14,7 @@ import { MessageModule } from 'primeng/message';
 @Component({
   selector: 'app-login',
   standalone: true,
-  imports: [ReactiveFormsModule, NgIf, InputTextModule, PasswordModule, ButtonModule, MessageModule, NgClass],
+  imports: [ReactiveFormsModule, InputTextModule, PasswordModule, ButtonModule, MessageModule],
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css']
 })
@@ -45,13 +45,19 @@ export class LoginComponent {
       this.loading = true;
       this.errorMessage = null;
 
-      const { email, password } = this.loginForm.value;
+      const {email, password} = this.loginForm.value;
 
       this.authService.login(email, password).subscribe({
         next: () => {
           this.loading = false;
           const home = this.authService.getRoles().includes('ADMIN') ? '/home-admin' : '/home-user';
-          this.router.navigate([home]).then(() => window.location.reload());
+
+          // Navega al home primero, espera y luego va al dashboard
+          this.router.navigate([home]).then(() => {
+            setTimeout(() => {
+              this.router.navigate(['/dashboard']);
+            }, 1000); // espera 1 segundo (ajustable)
+          });
         },
         error: (err) => {
           this.loading = false;
