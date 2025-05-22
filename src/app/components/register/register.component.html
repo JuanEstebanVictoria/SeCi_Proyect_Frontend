@@ -1,31 +1,62 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Users Registrated</title>
-  <link rel="stylesheet" href="register.component.css">
+  <title>Crear Cuenta</title>
 </head>
+<link rel="stylesheet" href="register.component.css">
 <body>
-<div class="container">
-  <button class="back-button">⟵</button>
-  <h1 class="title">USERS REGISTRATED</h1>
+<div class="navigation">
+  <button class="back-button">←</button>
+  <button class="home-button">⌂</button>
+</div>
 
-  <div class="user-box">
-    <ol class="user-list">
-      <li>Cesar Esneyder sisas 123 registrado</li>
-      <li></li>
-      <li></li>
-      <li></li>
-      <li></li>
-      <li></li>
-    </ol>
+<div class="register-container">
+  <h1>CREATE ACCOUNT</h1>
+
+  <div class="form-row">
+    <div class="form-group">
+      <label>Fullname</label>
+      <input type="text" placeholder="TEXT FIELD">
+    </div>
+    <div class="form-group">
+      <label>Email</label>
+      <input type="email" placeholder="TEXT FIELD">
+    </div>
   </div>
 
-  <div class="action-row">
-    <button class="find-button">Find users</button>
-    <input type="text" placeholder="TEXT FIELD" class="text-field">
+  <div class="form-row">
+    <div class="form-group">
+      <label>Phone number:</label>
+      <input type="tel" placeholder="TEXT FIELD">
+    </div>
+    <div class="form-group">
+      <label>Password</label>
+      <input type="password" placeholder="TEXT FIELD">
+    </div>
   </div>
+
+  <div class="form-row">
+    <div class="form-group">
+      <label>Datebirth</label>
+      <input type="date" placeholder="TEXT FIELD">
+    </div>
+    <div class="form-group">
+      <label>Confirm password</label>
+      <input type="password" placeholder="TEXT FIELD">
+    </div>
+  </div>
+
+  <div class="location-section">
+    <div class="location-header">
+      <label>SELECT YOUR LOCATION</label>
+      <button class="open-map-btn">OPEN MAP</button>
+    </div>
+    <!-- Aquí iría el mapa o campo de ubicación -->
+  </div>
+
+  <button class="register-btn">REGISTER</button>
 </div>
 </body>
 </html>
